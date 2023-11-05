@@ -1,0 +1,25 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+  & > * {
+    width: 100%;
+    box-sizing: border-box; 
+    transition: width 0.3s ease; 
+  }
+
+  @media (min-width: 768px) {
+    & {
+      max-width: 1400px;  // Increased the maximum width.
+      margin: 0 auto;
+    }
+
+    & > * {
+      width: 90%;         // Increased the width from 70% to 90%.
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

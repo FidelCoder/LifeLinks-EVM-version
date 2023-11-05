@@ -1,0 +1,77 @@
+.ticket-sales-and-payments {
+    display: flex;
+
+    .content {
+        padding: 20px;
+        flex-grow: 1;
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        .event-list, .processed-payments-list {
+            list-style-type: none;
+            padding: 0;
+
+            li {
+                border-bottom: 1px solid #eee;
+                padding: 10px 0;
+
+                .event-title {
+                    font-weight: bold;
+                }
+
+                span {
+                    margin-right: 15px;
+                }
+
+                button {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+.ticket-sales-and-payments {
+    display: flex;
+
+    .content {
+        padding: 20px;
+        flex-grow: 1;
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        // Grid layout for the components
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive grid with a min width of 300px
+        gap: 20px; // Gap between each tile
+
+        .event-list, .processed-payments-list {
+            list-style-type: none;
+            padding: 0;
+
+            // Optional: Control the height and enable scrolling if content overflows
+            max-height: 400px;
+            overflow-y: auto;
+
+            li {
+                border-bottom: 1px solid #eee;
+                padding: 10px 0;
+
+                .event-title {
+                    font-weight: bold;
+                }
+
+                span {
+                    margin-right: 15px;
+                }
+
+                button {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

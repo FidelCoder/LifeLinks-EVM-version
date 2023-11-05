@@ -1,0 +1,136 @@
+.organizationRegister {
+    min-height: 100vh;
+    background-color: rgb(193, 190, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2% 0; 
+
+    .card {
+        width: 100%; 
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: white;
+        border-radius: 10px;
+
+        // Enables vertical scrolling for mobile views
+        overflow-y: auto;
+        max-height: 90vh;
+
+        .left {
+            flex: 1;
+            background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+                url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600")
+                center;
+            background-size: cover;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            color: white;
+
+            h1 {
+                font-size: 50px;
+                line-height: 54px;
+            }
+            
+            p {
+                font-size: 14px;
+            }
+
+            span {
+                font-size: 12px;
+            }
+
+            button {
+                width: 70%;
+                padding: 8px;
+                border: none;
+                background-color: white;
+                color: rebeccapurple;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+
+        .right {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+
+            h1 {
+                font-size: 24px;
+                color: #555;
+            }
+            
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                input {
+                    border: none;
+                    border-bottom: 1px solid lightgray;
+                    padding: 15px 10px;
+                    font-size: 14px;
+                }
+
+                button {
+                    width: 70%;
+                    padding: 8px;
+                    border: none;
+                    background-color: #938eef;
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        @media (min-width: 769px) {
+            flex-direction: row;
+            max-height: unset; // Remove the height constraint on larger screens
+            overflow-y: unset; // Disable the overflow on larger screens
+
+            .left {
+                padding: 50px;
+                gap: 30px;
+
+                h1 {
+                    font-size: 100px;
+                    line-height: 100px;
+                }
+                
+                p {
+                    font-size: 16px;
+                }
+
+                span {
+                    font-size: 14px;
+                }
+
+                button {
+                    width: 50%;
+                    padding: 10px;
+                }
+            }
+
+            .right {
+                padding: 50px;
+                gap: 50px;
+
+                h1 {
+                    font-size: 32px;
+                }
+                
+                form {
+                    gap: 30px;
+                }
+            }
+        }
+    }
+}

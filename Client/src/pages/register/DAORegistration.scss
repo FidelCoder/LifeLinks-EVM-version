@@ -1,0 +1,96 @@
+.dao-register {
+    height: 100vh;
+    background-color: rgb(193, 190, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    .card {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column-reverse;
+      background-color: white;
+      border-radius: 10px;
+      height: 85vh; /* Adjusted height to make card slightly smaller than viewport */
+      overflow-y: auto; /* Enable vertical scrolling */
+  
+      @media screen and (min-width: 768px) {
+        flex-direction: row;
+        width: 60%;
+        height: auto;
+      }
+  
+      .left {
+        flex: 1;
+        background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+          url("https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600")
+            center;
+        background-size: cover;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: white;
+  
+        h1 {
+          font-size: 45px;
+          line-height: 55px;
+        }
+  
+        p {
+        }
+  
+        span {
+          font-size: 12px;
+        }
+  
+        button {
+          width: 50%;
+          padding: 10px;
+          border: none;
+          background-color: white;
+          color: rebeccapurple;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+  
+      .right {
+        flex: 1;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+  
+        h1 {
+          color: #555;
+          font-size: 40px;
+        }
+  
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+  
+          input, textarea {
+            border: none;
+            border-bottom: 1px solid lightgray;
+            padding: 15px 10px;
+          }
+  
+          button {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            background-color: #938eef;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,67 @@
+.proposed-events {
+    background: #f7f9fc;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+
+    h3 {
+        font-size: 1.5em;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: #333;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .event-date {
+                font-weight: 600;
+                color: #007bff;
+                flex: 1;
+            }
+
+            .event-title {
+                font-size: 1.2em;
+                flex: 3;
+            }
+
+            .event-description {
+                color: #555;
+                flex: 4;
+            }
+        }
+    }
+
+    // Responsiveness
+    @media (max-width: 768px) {
+        h3 {
+            font-size: 1.3em;
+        }
+
+        ul li {
+            flex-direction: column;
+            align-items: flex-start;
+
+            .event-date {
+                margin-bottom: 0.5rem;
+            }
+
+            .event-title, .event-description {
+                margin-bottom: 0.3rem;
+            }
+        }
+    }
+}

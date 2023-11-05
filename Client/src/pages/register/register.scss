@@ -1,0 +1,92 @@
+.register {
+  height: 100vh;
+  background-color: rgb(193, 190, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 600px;
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row-reverse;
+      width: 50%;
+    }
+
+    .left {
+      flex: 1;
+      background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+        url("https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600")
+          center;
+      background-size: cover;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: white;
+
+      h1 {
+        font-size: 3rem;
+        line-height: 3.5rem;
+      }
+
+      span {
+        font-size: 14px;
+      }
+      
+      button {
+        width: 100%;
+        max-width: 200px;
+        padding: 10px;
+        border: none;
+        background-color: white;
+        color: rebeccapurple;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    .right {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+
+      h1 {
+      color: #555;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+        input {
+          border: none;
+          border-bottom: 1px solid lightgray;
+          padding: 10px 10px;
+        }
+        
+        button {
+          width: 100%;
+          max-width: 200px;
+          padding: 10px;
+          border: none;
+          background-color: #938eef;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
