@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.22;
 
 import "./UserManager.sol";
 import "./OrganizationManagement.sol";
-import "./NFTTicketing.sol"; // Corrected to the name you've provided
-import "./LINKCoins.sol"; 
+import "./NFTTicketing.sol"; // Assuming NFTTicketing is the correct contract name
+import "./LINKCoins.sol"; // Assuming LINKCoins is the correct contract name
 
 contract EventManagement {
     struct Event {
         uint256 eventId;
-        address creator; // can be an individual or organization
+        address creator; // can be an individual user or organization
         string name;
         string description;
         uint256 date;  // using Unix timestamp for date
@@ -23,15 +23,14 @@ contract EventManagement {
     UserManager private userManagementContract;
     OrganizationManagement private organizationManagementContract;
     TicketingNFT private nftTicketingContract;
-    LINKCoins private linkCoinsContract;
+    LINKCoin private linkCoinsContract;
     
-    modifier onlyRegisteredUser() {
-        require(userManagementContract.isUserRegistered(msg.sender), "Only registered users can perform this action");
-        _;
-    }
-
-    modifier onlyRegisteredOrganization() {
-        require(organizationManagementContract.isOrganizationRegistered(msg.sender), "Only registered organizations can perform this action");
+    modifier onlyRegisteredEntities() {
+        require(
+            userManagementContract.isUserRegistered(msg.sender) || 
+            organizationManagementContract.isOrganizationRegistered(msg.sender),
+            "Only registered users or organizations can perform this action"
+        );
         _;
     }
     
@@ -44,16 +43,16 @@ contract EventManagement {
         userManagementContract = UserManager(_userManagementAddress);
         organizationManagementContract = OrganizationManagement(_organizationManagementAddress);
         nftTicketingContract = TicketingNFT(_nftTicketingAddress);
-        linkCoinsContract = LINKCoins(_linkCoinsAddress);
+        linkCoinsContract = LINKCoin(_linkCoinsAddress);
     }
 
-    function createEvent(string memory _name, string memory _description, uint256 _date, uint256 _ticketPrice) external onlyRegisteredUser returns(uint256) {
+    function createEvent(string memory _name, string memory _description, uint256 _date, uint256 _ticketPrice) external onlyRegisteredEntities returns(uint256) {
         eventIdCounter++;
         events[eventIdCounter] = Event(eventIdCounter, msg.sender, _name, _description, _date, _ticketPrice, false);
         return eventIdCounter;
     }
 
-    function updateEvent(uint256 _eventId, string memory _name, string memory _description, uint256 _date, uint256 _ticketPrice) external onlyRegisteredUser {
+    function updateEvent(uint256 _eventId, string memory _name, string memory _description, uint256 _date, uint256 _ticketPrice) external onlyRegisteredEntities {
         require(events[_eventId].creator == msg.sender, "Only the event creator can update this event");
         require(!events[_eventId].isDeleted, "This event has been deleted");
         
@@ -63,7 +62,7 @@ contract EventManagement {
         events[_eventId].ticketPrice = _ticketPrice;
     }
     
-    function deleteEvent(uint256 _eventId) external onlyRegisteredUser {
+    function deleteEvent(uint256 _eventId) external onlyRegisteredEntities {
         require(events[_eventId].creator == msg.sender, "Only the event creator can delete this event");
         events[_eventId].isDeleted = true;
     }
@@ -73,7 +72,13 @@ contract EventManagement {
         return events[_eventId];
     }
 
-    function attendEvent(uint256 _eventId) external onlyRegisteredUser {
+    function attendEvent(uint256 _eventId) external {
+        // The logic here is kept the same as before
+        require(
+            userManagementContract.isUserRegistered(msg.sender) || 
+            organizationManagementContract.isOrganizationRegistered(msg.sender),
+            "Only registered users or organizations can attend events"
+        );
         require(!events[_eventId].isDeleted, "This event has been deleted");
         if (events[_eventId].ticketPrice > 0) {
             // If it's a paid event, transfer LINKCoins to the event creator
