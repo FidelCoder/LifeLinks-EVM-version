@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import EventList from '../../components/Organization/Events/EventList';
+import EventList from '../../components/Events/EventList';
 import ProcessedPaymentsList from '../../components/Organization/ProcessedPaymentsList';
 import './TicketSalesAndPayments.scss';
 

@@ -21,9 +21,8 @@ import "./style.scss";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import Organization from "./pages/Organization/Organization";
-import EventsPage from "./pages/Organization/EventsPage";
+import EventsPage from "./pages/Events/EventsPage";
 import TicketSalesAndPayments from './pages/Organization/TicketSalesAndPayments'
-import EventPage from "./pages/Events/EventPage";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -104,10 +103,6 @@ function App() {
       path: "/register",
       element: <Register />,
     },
-    {
-      path: "/eventslist",
-      element: <EventPage />
-    }
   ]);
 
   return (

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from './Sidebar';
-import UpcomingEvents from '../../components/Organization/Events/UpcomingEvents';
-import PastEvents from '../../components/Organization/Events/PastEvents';
-import CancelledEvents from '../../components/Organization/Events/CancelledEvents';
-import ProposedEvents from '../../components/Organization/Events/ProposedEvents';
+import Sidebar from '../Organization/Sidebar';
+import UpcomingEvents from '../../components/Events/UpcomingEvents';
+import PastEvents from '../../components/Events/PastEvents';
+import CancelledEvents from '../../components/Events/CancelledEvents';
+import ProposedEvents from '../../components/Events/ProposedEvents';
 import './EventsPage.scss';
-import EventPage from '../Events/EventPage';
+import EventPage from '../../components/Events/EventPage';
 
 const EventsPage = () => {
     const [eventsData, setEventsData] = useState({
